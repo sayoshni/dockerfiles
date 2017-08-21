@@ -28,13 +28,11 @@ RUN apt-get update && \
         jq \
         sshpass \
         hostname \
-        supervisor \
         locales \
         iptables \
         ca-certificates \
         lxc \
         apt-transport-https \
-        supervisor \
         sudo \
         python3 \
         curl \
