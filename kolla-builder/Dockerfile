@@ -17,26 +17,18 @@ RUN apt-get update && \
     apt-get install -y \
         build-essential \
         git \
-        git-review \
         python-virtualenv \
         python-dev \
         python-pip \
         gcc \
         libssl-dev \
         libffi-dev \
-        crudini \
-        jq \
-        sshpass \
         hostname \
-        locales \
-        iptables \
         ca-certificates \
-        lxc \
         apt-transport-https \
         sudo \
         python3 \
         curl \
-        screen \
         docker.io
 
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
