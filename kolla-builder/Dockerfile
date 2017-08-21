@@ -23,11 +23,7 @@ RUN apt-get update && \
         gcc \
         libssl-dev \
         libffi-dev \
-        hostname \
-        ca-certificates \
-        apt-transport-https \
         sudo \
-        python3 \
         curl \
         docker.io
 
