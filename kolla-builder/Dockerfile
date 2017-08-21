@@ -42,15 +42,11 @@ RUN apt-get update && \
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY scripts/start.sh /usr/local/bin/start.sh
-COPY scripts/wrapdocker /usr/local/bin/wrapdocker
 COPY scripts/clean.sh /usr/local/bin/clean.sh
-COPY scripts/supervisord.conf /etc/supervisor/conf.d/wrapdocker.conf
 COPY scripts/kolla-push.sh /usr/local/bin/kolla-push.sh
 
 RUN chmod +x /usr/local/bin/start.sh && \
-    chmod +x /usr/local/bin/wrapdocker && \
     chmod +x /usr/local/bin/clean.sh && \
-    chmod +x /etc/supervisor/conf.d/wrapdocker.conf && \
     chmod +x /usr/local/bin/kolla-push.sh
 
 WORKDIR /root
