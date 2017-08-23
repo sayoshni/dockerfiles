@@ -13,18 +13,14 @@ ENV KOLLA_BASE=ubuntu \
     DOCKER_REGISTRY=quay.io \
     DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && \
-    apt-get install -y \
-        build-essential \
+RUN apt-get update && apt-get install -y \
         git \
+        gcc \
         python-virtualenv \
         python-dev \
         python-pip \
-        gcc \
         libssl-dev \
         libffi-dev \
-        sudo \
-        curl \
         docker.io
 
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -51,10 +47,11 @@ RUN mkdir -p .venv && \
     mkdir -p /etc/kolla
 
 RUN mkdir -p /root/.kolla-$KOLLA_VERSION/src/$KOLLA_PROJECT && \
-    git clone http://git.openstack.org/openstack/keystone.git /tmp/kolla/src/keystone 
+    git clone http://git.openstack.org/openstack/keystone.git /tmp/kolla/src/keystone
 
 COPY oslo_config/kolla-build.conf /etc/kolla/kolla-build.conf
 
 WORKDIR /root/.kolla-$KOLLA_VERSION
 
 CMD ["/usr/local/bin/start.sh"]
+
