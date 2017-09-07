@@ -4,10 +4,6 @@ if [ "$1" = "bash" ]; then
   exec bash
 fi
 
-# Start Supervisord
-# sudo /usr/bin/supervisord
-# sleep 2
-
 # Activate the kolla-build environment:
 . /root/.venv/kolla-builds/bin/activate
 
