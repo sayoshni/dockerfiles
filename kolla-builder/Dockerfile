@@ -47,11 +47,12 @@ RUN mkdir -p .venv && \
     mkdir -p /etc/kolla
 
 RUN mkdir -p /root/.kolla-$KOLLA_VERSION/src/$KOLLA_PROJECT && \
-    git clone http://git.openstack.org/openstack/keystone.git /tmp/kolla/src/keystone
+    git clone http://git.openstack.org/openstack/$KOLLA_PROJECT.git /tmp/kolla/src/$KOLLA_PROJECT
 
 COPY oslo_config/kolla-build.conf /etc/kolla/kolla-build.conf
 
 WORKDIR /root/.kolla-$KOLLA_VERSION
 
 CMD ["/usr/local/bin/start.sh"]
+
 
